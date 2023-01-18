@@ -12,6 +12,8 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
+
+     //qua decido dove far atterrare nel momento in cui non sono logato ma cerco di entrare nell'area protetta
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {

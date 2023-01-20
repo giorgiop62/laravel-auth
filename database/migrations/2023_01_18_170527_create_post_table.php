@@ -18,6 +18,8 @@ return new class extends Migration
            $table->string('slug')->unique();
            $table->date('data');
            $table->text('text');
+           $table->timestamps();
+
 
         });
     }

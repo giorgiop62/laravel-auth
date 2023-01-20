@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Faker\Generetor as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Str;
 class PostsTableSeeder extends Seeder
 {
     /**
@@ -13,8 +13,15 @@ class PostsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
-    {
-
+    public function run(Faker $faker){
+        for($i = 0; $i<10; $i++){
+            $new_post = new Post();
+            $new_post->title = $faker->sentence();
+            $new_post->slug = Post::generateSlug($new_post->title);
+            $new_post->date = $faker->date('Y-m-d');
+            $new_post->text = $faker->paragraph(5);
+            dd($new_post);
+        }
     }
+
 }

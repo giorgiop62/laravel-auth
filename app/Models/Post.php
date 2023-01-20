@@ -18,7 +18,7 @@ class Post extends Model
         $post_exists = Post::where('slug', $slug)->first();
         while($post_exists){
             $slug = $new_slug . '-' .$c;
-            $comic_exists = Post::where('slug', $slug)->first();
+            $post_exists = Post::where('slug', $slug)->first();
             $c++;
 
 
